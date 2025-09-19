@@ -9,6 +9,12 @@ export const NAV_LINKS = [
   { name: 'Contacto', href: '#contact' },
 ];
 
+export const MODEL_LINKS = [
+  { name: 'BYD Dolphin', href: '#byd-dolphin', id: 'byd-dolphin' },
+  { name: 'BYD Yuan Pro', href: '#byd-yuan-pro', id: 'byd-yuan-pro' },
+  { name: 'BYD Seal', href: '#byd-seal', id: 'byd-seal' },
+];
+
 export const CAR_MODELS: CarModel[] = [
   {
     id: 'byd-dolphin',
@@ -27,7 +33,7 @@ export const CAR_MODELS: CarModel[] = [
     colors: ['Rosa', 'Gris', 'Blanco'],
     description: 'El BYD Dolphin es el hatchback eléctrico que redefine la movilidad urbana con su diseño ágil, interior espacioso y tecnología de vanguardia.',
     price: 'Desde USD $35,000',
-    imageUrl: './images/byd-dolphin-model.png',
+    imageUrl: './images/byd-mini-dolphin-model.png',
   },
   {
     id: 'byd-yuan-pro',
@@ -62,7 +68,7 @@ export const CAR_MODELS: CarModel[] = [
     connectivity: 'Pantalla rotativa de 15.6", 5G',
     safety: 'Estructura Cell-to-Body, 9 Airbags',
     assistant: 'Sistema de Piloto Inteligente DiPilot',
-    recognition: 'Finalista "Auto del Año 2024"',
+    recognition: 'Finalista "Auto del Año 2025"',
     colors: ['Azul Océano', 'Gris Espacial', 'Negro Cosmos'],
     description: 'El BYD Seal combina un rendimiento estimulante con un diseño aerodinámico y lujo tecnológico, estableciendo un nuevo estándar para los sedanes eléctricos.',
     price: 'Desde USD $55,000',
@@ -98,9 +104,9 @@ export const BENEFITS_SLIDER_IMAGES = [
 ];
 
 export const VISUAL_DIVIDER_IMAGES = [
-  { src: './images/byd-dolphin-mini-1.png', alt: 'BYD Dolphin Mini vista lateral' },
-  { src: './images/byd-dolphin-mini-2.png', alt: 'BYD Dolphin Mini interior con airbags' },
-  { src: './images/byd-dolphin-mini-3.png', alt: 'BYD Dolphin Mini vista técnica' },
+  { src: './images/byd-mini-dolphin-1.png', alt: 'BYD Dolphin Mini vista lateral' },
+  { src: './images/byd-mini-dolphin-2.png', alt: 'BYD Dolphin Mini interior con airbags' },
+  { src: './images/byd-mini-dolphin-3.png', alt: 'BYD Dolphin Mini vista técnica' },
 ];
 
 export const YUAN_PRO_SLIDER_IMAGES = [
@@ -127,7 +133,7 @@ export const TESTIMONIALS = [
 export const FAQS = [
   {
     q: '¿Cuándo abre el concesionario en Villa Carlos Paz?',
-    a: 'La gran apertura está programada para el 30 de noviembre de 2024. ¡Te esperamos para celebrar juntos la llegada de la electromovilidad a las sierras!',
+    a: 'La gran apertura está programada para el 30 de noviembre de 2025. ¡Te esperamos para celebrar juntos la llegada de la electromovilidad a las sierras!',
   },
   {
     q: '¿Qué beneficios obtengo al pre-registrarme?',

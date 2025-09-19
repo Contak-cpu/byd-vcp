@@ -1,9 +1,8 @@
 
-import React, { useState } from 'react';
+import React from 'react';
 import { CAR_MODELS } from '../constants';
 import { CarModel } from '../types';
-import ModelModal from './ModelModal';
-import VehicleDetail from './VehicleDetail';
+import { scrollToElement } from '../utils/scrollUtils';
 
 interface ModelCardProps {
   model: CarModel;
@@ -11,9 +10,13 @@ interface ModelCardProps {
 }
 
 const ModelCard: React.FC<ModelCardProps> = ({ model, onMoreInfoClick }) => {
+  const handleMoreInfoClick = () => {
+    onMoreInfoClick(model);
+  };
+
   const handleScrollToForm = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
-    document.querySelector('#pre-registro')?.scrollIntoView({ behavior: 'smooth' });
+    scrollToElement('#pre-registro', 80);
   };
     
   return (
@@ -21,7 +24,7 @@ const ModelCard: React.FC<ModelCardProps> = ({ model, onMoreInfoClick }) => {
       <div className="relative">
         <img src={model.imageUrl} alt={model.name} className="w-full h-40 sm:h-48 md:h-56 object-cover" />
         <div className="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-colors duration-300 flex items-center justify-center opacity-0 group-hover:opacity-100">
-           <button onClick={() => onMoreInfoClick(model)} className="text-white border-2 border-white rounded-full px-4 py-1.5 sm:px-6 sm:py-2 font-semibold hover:bg-white hover:text-black transition-all text-sm sm:text-base">
+           <button onClick={handleMoreInfoClick} className="text-white border-2 border-white rounded-full px-4 py-1.5 sm:px-6 sm:py-2 font-semibold hover:bg-white hover:text-black transition-all text-sm sm:text-base">
              Más Información
            </button>
         </div>
@@ -34,7 +37,7 @@ const ModelCard: React.FC<ModelCardProps> = ({ model, onMoreInfoClick }) => {
           <p className="text-xs sm:text-sm text-gray-600 dark:text-gray-400">Precio referencial</p>
         </div>
         <div className="mt-4 sm:mt-6 flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-2">
-           <button onClick={() => onMoreInfoClick(model)} className="flex-1 bg-gray-200 dark:bg-gray-600 text-gray-900 dark:text-white font-bold py-2 sm:py-3 px-3 sm:px-4 rounded-md hover:bg-gray-300 dark:hover:bg-gray-500 transition-colors duration-300 text-sm sm:text-base">
+           <button onClick={handleMoreInfoClick} className="flex-1 bg-gray-200 dark:bg-gray-600 text-gray-900 dark:text-white font-bold py-2 sm:py-3 px-3 sm:px-4 rounded-md hover:bg-gray-300 dark:hover:bg-gray-500 transition-colors duration-300 text-sm sm:text-base">
              Configurar
            </button>
            <button onClick={handleScrollToForm} className="flex-1 bg-primary-600 text-white font-bold py-2 sm:py-3 px-3 sm:px-4 rounded-md hover:bg-primary-700 transition-colors duration-300 text-sm sm:text-base">
@@ -46,17 +49,11 @@ const ModelCard: React.FC<ModelCardProps> = ({ model, onMoreInfoClick }) => {
   );
 };
 
-const Models: React.FC = () => {
-  const [selectedModel, setSelectedModel] = useState<CarModel | null>(null);
+interface ModelsProps {
+  onModelClick: (model: CarModel) => void;
+}
 
-  const handleOpenModal = (model: CarModel) => {
-    setSelectedModel(model);
-  };
-
-  const handleCloseModal = () => {
-    setSelectedModel(null);
-  };
-
+const Models: React.FC<ModelsProps> = ({ onModelClick }) => {
   return (
     <section id="models" className="py-12 sm:py-16 md:py-20 bg-gray-100 dark:bg-gray-900">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -66,11 +63,10 @@ const Models: React.FC = () => {
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8">
           {CAR_MODELS.map(model => (
-            <ModelCard key={model.id} model={model} onMoreInfoClick={handleOpenModal} />
+            <ModelCard key={model.id} model={model} onMoreInfoClick={onModelClick} />
           ))}
         </div>
       </div>
-      {selectedModel && <VehicleDetail vehicle={selectedModel} onClose={handleCloseModal} />}
     </section>
   );
 };

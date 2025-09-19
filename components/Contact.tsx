@@ -17,7 +17,7 @@ const Contact: React.FC = () => {
               <ContactInfoItem icon="location" title="Dirección" text="Av. San Martín 490, X5152 Villa Carlos Paz, Córdoba" />
               <ContactInfoItem icon="phone" title="WhatsApp" text="+54 9 351 123 4567" link="https://wa.me/5493511234567" />
               <ContactInfoItem icon="mail" title="Email" text="info@byd-carlospaz.com.ar" link="mailto:info@byd-carlospaz.com.ar" />
-              <ContactInfoItem icon="clock" title="Horarios de Atención (Desde 30/11/2024)" text="Lunes a Viernes: 9:00 - 18:00 | Sábados: 9:00 - 13:00" />
+              <ContactInfoItem icon="clock" title="Horarios de Atención (Desde 30/11/2025)" text="Lunes a Viernes: 9:00 - 18:00 | Sábados: 9:00 - 13:00" />
             </div>
           </div>
           
