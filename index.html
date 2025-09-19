@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BYD Concesionario Oficial | Villa Carlos Paz</title>
+    <meta name="description" content="Sitio web oficial del concesionario BYD en Villa Carlos Paz, Córdoba, Argentina. Descubrí los modelos, reservá el tuyo y sé parte de la revolución eléctrica." />
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://byd-vcp.vercel.app/">
+    <meta property="og:title" content="BYD Concesionario Oficial | Villa Carlos Paz">
+    <meta property="og:description" content="Sitio web oficial del concesionario BYD en Villa Carlos Paz. Descubrí los modelos, reservá el tuyo y sé parte de la revolución eléctrica.">
+    <meta property="og:image" content="https://picsum.photos/1200/630?random=1">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://byd-vcp.vercel.app/">
+    <meta property="twitter:title" content="BYD Concesionario Oficial | Villa Carlos Paz">
+    <meta property="twitter:description" content="Sitio web oficial del concesionario BYD en Villa Carlos Paz. Descubrí los modelos, reservá el tuyo y sé parte de la revolución eléctrica.">
+    <meta property="twitter:image" content="https://picsum.photos/1200/630?random=1">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+    <script>
+      tailwind.config = {
+        darkMode: 'class',
+        theme: {
+          extend: {
+            colors: {
+              primary: '#00b4d8', // Original Celeste/Blue
+              'primary-dark': '#0077b6', // Darker Blue for hover
+              secondary: '#2d3e50',
+              accent: '#ffd700',
+              'text-dark': '#333333',
+              'text-light': '#666666',
+              'background-light': '#ffffff',
+              'background-dark': '#1a202c',
+              surface: '#f8f9fa',
+              'surface-dark': '#2d3748',
+              success: '#28a745',
+              error: '#dc3545',
+              border: '#e9ecef',
+              'border-dark': '#4a5568',
+            },
+            fontFamily: {
+              sans: ['Inter', 'sans-serif'],
+              heading: ['Poppins', 'sans-serif'],
+            },
+            boxShadow: {
+              sm: '0 2px 8px rgba(0,0,0,0.1)',
+              md: '0 8px 25px rgba(0,0,0,0.15)',
+              lg: '0 15px 35px rgba(0,0,0,0.2)',
+            },
+            borderRadius: {
+              sm: '8px',
+              md: '12px',
+              lg: '20px',
+            },
+            transitionTimingFunction: {
+              'custom-bezier': 'cubic-bezier(0.4, 0, 0.2, 1)',
+            },
+          }
+        }
+      }
+    </script>
+  <script type="importmap">
+{
+  "imports": {
+    "react/": "https://aistudiocdn.com/react@^19.1.1/",
+    "react": "https://aistudiocdn.com/react@^19.1.1",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.1.1/"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+  <body>
+    <div id="root"></div>
+  <script type="module" src="/index.tsx"></script>
+</body>
+</html>
