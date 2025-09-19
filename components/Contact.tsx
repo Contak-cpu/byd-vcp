@@ -2,11 +2,11 @@ import React from 'react';
 
 const Contact: React.FC = () => {
   return (
-    <section id="contact" className="py-20 bg-white dark:bg-background-dark">
+    <section id="contact" className="py-20 bg-gray-50 dark:bg-gray-800">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
-          <h2 className="font-heading text-4xl md:text-5xl font-extrabold text-secondary dark:text-white">Contacto y Ubicación</h2>
-          <p className="mt-4 text-lg text-text-light dark:text-gray-400 max-w-2xl mx-auto">
+          <h2 className="font-heading text-4xl md:text-5xl font-extrabold text-gray-900 dark:text-white">Contacto y Ubicación</h2>
+          <p className="mt-4 text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
             Estamos ansiosos por recibirte. Encontranos en el corazón de las sierras.
           </p>
         </div>
@@ -60,16 +60,16 @@ const ContactInfoItem: React.FC<{ icon: string, title: string, text: string, lin
     clock: <path strokeLinecap="round" strokeLinejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" />
   };
   
-  const content = link ? <a href={link} target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">{text}</a> : <span>{text}</span>;
+  const content = link ? <a href={link} target="_blank" rel="noopener noreferrer" className="hover:text-primary-600 transition-colors">{text}</a> : <span>{text}</span>;
 
   return (
     <div className="flex items-start space-x-4">
-      <div className="flex-shrink-0 bg-primary/10 dark:bg-primary/20 p-3 rounded-full">
-        <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>{icons[icon]}</svg>
+      <div className="flex-shrink-0 bg-primary-100 dark:bg-primary-900/20 p-3 rounded-full">
+        <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-primary-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>{icons[icon]}</svg>
       </div>
       <div>
-        <h4 className="text-lg font-bold text-secondary dark:text-white">{title}</h4>
-        <p className="text-text-light dark:text-gray-400">{content}</p>
+        <h4 className="text-lg font-bold text-gray-900 dark:text-white">{title}</h4>
+        <p className="text-gray-600 dark:text-gray-400">{content}</p>
       </div>
     </div>
   );

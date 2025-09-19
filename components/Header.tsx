@@ -49,7 +49,7 @@ const Header: React.FC<HeaderProps> = ({ theme, toggleTheme }) => {
   };
 
   return (
-    <header className={`sticky top-0 z-50 transition-all duration-300 ${isScrolled ? 'bg-primary dark:bg-secondary shadow-md' : 'bg-transparent'}`}>
+    <header className={`sticky top-0 z-50 transition-all duration-300 ${isScrolled ? 'bg-primary-600 dark:bg-secondary-600 shadow-md' : 'bg-transparent'}`}>
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
           <div className="flex-shrink-0">
@@ -68,7 +68,7 @@ const Header: React.FC<HeaderProps> = ({ theme, toggleTheme }) => {
             <button onClick={toggleTheme} className="p-2 rounded-full hover:bg-white/10 transition-colors">
               {theme === 'light' ? <MoonIcon className="h-6 w-6 text-white drop-shadow-md" /> : <SunIcon className="h-6 w-6 text-yellow-400 drop-shadow-md" />}
             </button>
-            <a href="#pre-registro" onClick={(e) => handleLinkClick(e, '#pre-registro')} className="hidden sm:inline-block bg-white hover:bg-gray-200 text-primary-dark font-bold py-2 px-6 rounded-md transition-all duration-300 shadow-sm hover:shadow-md">
+            <a href="#pre-registro" onClick={(e) => handleLinkClick(e, '#pre-registro')} className="hidden sm:inline-block bg-white hover:bg-gray-200 text-primary-600 font-bold py-2 px-6 rounded-md transition-all duration-300 shadow-sm hover:shadow-md">
               Reservar Ahora
             </a>
             <div className="md:hidden">
@@ -87,7 +87,7 @@ const Header: React.FC<HeaderProps> = ({ theme, toggleTheme }) => {
                 {link.name}
               </a>
             ))}
-            <a href="#pre-registro" onClick={(e) => handleLinkClick(e, '#pre-registro')} className="bg-white hover:bg-gray-200 text-primary-dark font-bold py-2 px-6 rounded-md transition-all duration-300 shadow-sm hover:shadow-md">
+            <a href="#pre-registro" onClick={(e) => handleLinkClick(e, '#pre-registro')} className="bg-white hover:bg-gray-200 text-primary-600 font-bold py-2 px-6 rounded-md transition-all duration-300 shadow-sm hover:shadow-md">
               Reservar Ahora
             </a>
           </nav>
