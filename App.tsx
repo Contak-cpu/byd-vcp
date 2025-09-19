@@ -1,6 +1,5 @@
 
 import React, { useState } from 'react';
-import { useTheme } from './hooks/useTheme';
 import Header from './components/Header';
 import Hero from './components/Hero';
 import VisualDivider from './components/VisualDivider';
@@ -16,7 +15,6 @@ import VehiclePage from './components/VehiclePage';
 import { CarModel } from './types';
 
 const App: React.FC = () => {
-  const [theme, toggleTheme] = useTheme();
   const [selectedModel, setSelectedModel] = useState<CarModel | null>(null);
 
   const handleModelClick = (model: CarModel) => {
@@ -33,8 +31,8 @@ const App: React.FC = () => {
   }
 
   return (
-    <div className="bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-200 font-sans transition-colors duration-300">
-      <Header theme={theme} toggleTheme={toggleTheme} onModelClick={handleModelClick} />
+    <div className="bg-white text-gray-900 font-sans">
+      <Header onModelClick={handleModelClick} />
       <main>
         <Hero />
         <VisualDivider />
