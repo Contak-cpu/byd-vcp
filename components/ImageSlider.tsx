@@ -113,57 +113,11 @@ const ImageSlider: React.FC<ImageSliderProps> = ({ images }) => {
       
       {/* Overlay for Title and Description */}
       {(currentImage.title || currentImage.description) && (
-        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/40 to-transparent flex flex-col justify-end p-6 md:p-8 pointer-events-none">
-          {currentImage.title && <h3 className="text-white text-2xl md:text-3xl font-bold font-heading">{currentImage.title}</h3>}
-          {currentImage.description && <p className="text-gray-200 mt-2 text-sm md:text-base">{currentImage.description}</p>}
+        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/40 to-transparent flex flex-col justify-end p-4 sm:p-6 md:p-8 pointer-events-none">
+          {currentImage.title && <h3 className="text-white text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold font-heading">{currentImage.title}</h3>}
+          {currentImage.description && <p className="text-gray-200 mt-1 sm:mt-2 text-xs sm:text-sm md:text-base">{currentImage.description}</p>}
         </div>
       )}
-
-      {/* Navigation Arrows */}
-      <div className="absolute top-1/2 -translate-y-1/2 left-2 md:left-5 opacity-70 hover:opacity-100 transition-opacity duration-300 z-[9999]">
-        <button 
-          onClick={(e) => {
-            e.preventDefault();
-            e.stopPropagation();
-            goToPrevious();
-          }} 
-          className="bg-black/40 hover:bg-black/60 text-white p-2 md:p-3 rounded-full cursor-pointer select-none"
-          type="button"
-        >
-            <ChevronLeftIcon className="h-4 w-4 md:h-6 md:w-6" />
-        </button>
-      </div>
-      <div className="absolute top-1/2 -translate-y-1/2 right-2 md:right-5 opacity-70 hover:opacity-100 transition-opacity duration-300 z-[9999]">
-        <button 
-          onClick={(e) => {
-            e.preventDefault();
-            e.stopPropagation();
-            goToNext();
-          }} 
-          className="bg-black/40 hover:bg-black/60 text-white p-2 md:p-3 rounded-full cursor-pointer select-none"
-          type="button"
-        >
-            <ChevronRightIcon className="h-4 w-4 md:h-6 md:w-6" />
-        </button>
-      </div>
-      
-      {/* Dots Indicator */}
-      <div className="absolute bottom-3 md:bottom-5 left-1/2 -translate-x-1/2 flex space-x-2 md:space-x-3 z-[9999]">
-        {images.map((_, index) => (
-          <button
-            key={index}
-            onClick={(e) => {
-              e.preventDefault();
-              e.stopPropagation();
-              setCurrentIndex(index);
-            }}
-            className={`w-4 h-4 md:w-6 md:h-6 rounded-full transition-all duration-300 hover:scale-110 cursor-pointer select-none flex items-center justify-center ${currentIndex === index ? 'bg-white shadow-lg' : 'bg-white/60 hover:bg-white/80'}`}
-            type="button"
-          >
-            <div className={`w-2 h-2 md:w-3 md:h-3 rounded-full ${currentIndex === index ? 'bg-gray-800' : 'bg-white'}`}></div>
-          </button>
-        ))}
-      </div>
     </div>
   );
 };

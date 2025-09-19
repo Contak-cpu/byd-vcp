@@ -89,7 +89,7 @@ const PreRegistrationForm: React.FC = () => {
   }
 
   return (
-    <section id="pre-registro" className="relative h-[90vh] min-h-[600px] text-white overflow-hidden">
+    <section id="pre-registro" className="relative h-[80vh] sm:h-[85vh] md:h-[90vh] min-h-[500px] sm:min-h-[550px] md:min-h-[600px] text-white overflow-hidden">
       {/* Imagen de fondo */}
       <div className="absolute inset-0 z-0">
         <img 
@@ -100,24 +100,24 @@ const PreRegistrationForm: React.FC = () => {
         <div className="absolute inset-0 bg-black/30"></div>
       </div>
       
-      <div className="relative z-10 flex flex-col justify-center h-full p-8 md:p-12">
-        <div className="max-w-3xl mx-auto text-center mb-8">
-          <h2 className="font-heading text-4xl md:text-5xl lg:text-6xl font-extrabold animate-fade-in-down">Asegurá tu BYD Hoy</h2>
-          <p className="mt-4 text-lg md:text-xl animate-fade-in-down animation-delay-300">
+      <div className="relative z-10 flex flex-col justify-center h-full p-4 sm:p-6 md:p-8 lg:p-12">
+        <div className="max-w-3xl mx-auto text-center mb-6 sm:mb-8">
+          <h2 className="font-heading text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-extrabold animate-fade-in-down">Asegurá tu BYD Hoy</h2>
+          <p className="mt-2 sm:mt-3 md:mt-4 text-sm sm:text-base md:text-lg lg:text-xl animate-fade-in-down animation-delay-300">
             Completá el formulario para ser de los primeros en Argentina en manejar un BYD. La reserva es de USD $500.
           </p>
         </div>
         
         <div className="max-w-2xl mx-auto w-full animate-fade-in-up animation-delay-500">
-          <form onSubmit={handleSubmit} noValidate className="bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm p-8 rounded-lg shadow-lg space-y-6">
+          <form onSubmit={handleSubmit} noValidate className="bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm p-4 sm:p-6 md:p-8 rounded-lg shadow-lg space-y-4 sm:space-y-5 md:space-y-6">
           <InputField id="name" name="name" label="Nombre Completo" value={formData.name} onChange={handleChange} error={errors.name} />
           <InputField id="email" name="email" type="email" label="Email" value={formData.email} onChange={handleChange} error={errors.email} />
           <InputField id="phone" name="phone" type="tel" label="Teléfono (ej: 3511234567)" value={formData.phone} onChange={handleChange} error={errors.phone} />
           <InputField id="city" name="city" label="Ciudad" value={formData.city} onChange={handleChange} error={errors.city} />
 
           <div>
-            <label className="block text-sm font-medium text-text-light dark:text-gray-300 mb-2">Modelo(s) de Interés</label>
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Modelo(s) de Interés</label>
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 sm:gap-4">
               {CAR_MODELS.map(model => (
                 <CheckboxField key={model.id} id={model.id} name="models" value={model.name} label={model.name} onChange={handleModelChange} />
               ))}
@@ -128,7 +128,7 @@ const PreRegistrationForm: React.FC = () => {
           <CheckboxField id="terms" name="terms" checked={formData.terms} onChange={handleChange} label="Acepto los términos y condiciones de la prereserva." error={errors.terms} />
           <CheckboxField id="newsletter" name="newsletter" checked={formData.newsletter} onChange={handleChange} label="Quiero recibir noticias y promociones de BYD Argentina." />
           
-          <button type="submit" className="w-full bg-primary text-white font-bold py-3 px-4 rounded-md hover:bg-primary-dark transition-colors duration-300 text-lg shadow-md">
+          <button type="submit" className="w-full bg-primary-600 text-white font-bold py-2.5 sm:py-3 px-4 rounded-md hover:bg-primary-700 transition-colors duration-300 text-base sm:text-lg shadow-md">
             Enviar Pre-Registro
           </button>
           </form>
@@ -157,8 +157,8 @@ const PreRegistrationForm: React.FC = () => {
 
 const InputField: React.FC<{id: string, name: string, label: string, value: string, onChange: (e: React.ChangeEvent<HTMLInputElement>) => void, type?: string, error?: string}> = ({ id, name, label, value, onChange, type = 'text', error }) => (
     <div>
-      <label htmlFor={id} className="block text-sm font-medium text-text-light dark:text-gray-300">{label}</label>
-      <input type={type} id={id} name={name} value={value} onChange={onChange} className={`mt-1 block w-full px-3 py-2 bg-white dark:bg-gray-800 border ${error ? 'border-red-500' : 'border-border dark:border-border-dark'} rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary sm:text-sm`} />
+      <label htmlFor={id} className="block text-sm font-medium text-gray-700 dark:text-gray-300">{label}</label>
+      <input type={type} id={id} name={name} value={value} onChange={onChange} className={`mt-1 block w-full px-3 py-2 bg-white dark:bg-gray-800 border ${error ? 'border-red-500' : 'border-gray-300 dark:border-gray-600'} rounded-md shadow-sm focus:outline-none focus:ring-primary-600 focus:border-primary-600 text-sm sm:text-base`} />
       {error && <p className="text-red-500 text-xs mt-1">{error}</p>}
     </div>
 );
@@ -166,10 +166,10 @@ const InputField: React.FC<{id: string, name: string, label: string, value: stri
 const CheckboxField: React.FC<{id: string, name: string, label: string, onChange: (e: React.ChangeEvent<HTMLInputElement>) => void, checked?: boolean, value?: string, error?: string}> = ({ id, name, label, onChange, checked, value, error }) => (
     <div className="flex items-start">
         <div className="flex items-center h-5">
-            <input id={id} name={name} type="checkbox" checked={checked} value={value} onChange={onChange} className="focus:ring-primary h-4 w-4 text-primary border-gray-300 rounded" />
+            <input id={id} name={name} type="checkbox" checked={checked} value={value} onChange={onChange} className="focus:ring-primary-600 h-4 w-4 text-primary-600 border-gray-300 rounded" />
         </div>
         <div className="ml-3 text-sm">
-            <label htmlFor={id} className="font-medium text-text-light dark:text-gray-300">{label}</label>
+            <label htmlFor={id} className="font-medium text-gray-700 dark:text-gray-300">{label}</label>
             {error && <p className="text-red-500 text-xs">{error}</p>}
         </div>
     </div>

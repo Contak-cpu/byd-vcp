@@ -4,7 +4,7 @@ import { YUAN_PRO_SLIDER_IMAGES } from '../constants';
 
 const YuanProSlider: React.FC = () => {
   return (
-    <section className="relative h-[70vh] sm:h-[80vh] md:h-[90vh] min-h-[400px] sm:min-h-[500px] md:min-h-[600px] text-white overflow-hidden">
+    <section className="relative h-[60vh] sm:h-[70vh] md:h-[80vh] lg:h-[90vh] min-h-[350px] sm:min-h-[400px] md:min-h-[500px] lg:min-h-[600px] text-white overflow-hidden">
       <div className="absolute inset-0 z-0">
         <ImageSlider images={YUAN_PRO_SLIDER_IMAGES} />
       </div>
