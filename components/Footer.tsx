@@ -4,7 +4,7 @@ import React from 'react';
 const Footer: React.FC = () => {
   const year = new Date().getFullYear();
   return (
-    <footer className="bg-secondary dark:bg-gray-900 text-white">
+    <footer className="bg-gray-800 dark:bg-gray-900 text-white">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <div className="flex flex-col md:flex-row justify-between items-center">
           <p className="text-sm text-gray-400">&copy; {year} BYD Concesionario Villa Carlos Paz. Todos los derechos reservados.</p>

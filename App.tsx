@@ -17,7 +17,7 @@ const App: React.FC = () => {
   const [theme, toggleTheme] = useTheme();
 
   return (
-    <div className="bg-background-light dark:bg-background-dark text-text-dark dark:text-gray-200 font-sans transition-colors duration-300">
+    <div className="bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-200 font-sans transition-colors duration-300">
       <Header theme={theme} toggleTheme={toggleTheme} />
       <main>
         <Hero />

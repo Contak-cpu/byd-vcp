@@ -9,7 +9,7 @@ const Hero: React.FC = () => {
   };
 
   return (
-    <section id="hero" className="relative h-[90vh] min-h-[600px] flex items-center justify-center text-white overflow-hidden">
+    <section id="hero" className="relative h-[70vh] sm:h-[80vh] md:h-[90vh] min-h-[400px] sm:min-h-[500px] md:min-h-[600px] flex items-center justify-center text-white overflow-hidden">
       <div className="absolute inset-0 z-0">
         <img 
           src="./images/byd-hero.png" 
@@ -18,30 +18,30 @@ const Hero: React.FC = () => {
         />
         <div className="absolute inset-0 bg-black/60"></div>
       </div>
-      <div className="relative z-10 flex flex-col items-center space-y-6 text-center px-4">
+      <div className="relative z-10 flex flex-col items-center space-y-4 sm:space-y-6 text-center px-4 sm:px-6">
         <div className="animate-fade-in-down">
-            <h1 className="font-heading text-4xl md:text-6xl lg:text-7xl font-extrabold">
+            <h1 className="font-heading text-2xl sm:text-3xl md:text-4xl lg:text-6xl xl:text-7xl font-extrabold">
             Concesionario Oficial BYD Villa Carlos Paz
             </h1>
         </div>
         <div className="animate-fade-in-up animation-delay-300">
-            <p className="font-sans text-lg md:text-xl max-w-3xl mx-auto">
+            <p className="font-sans text-sm sm:text-base md:text-lg lg:text-xl max-w-3xl mx-auto">
             Build Your Dreams - La revolución de la movilidad eléctrica llega a las sierras de Córdoba.
             </p>
         </div>
-        <div className="bg-white/10 backdrop-blur-sm p-6 rounded-lg max-w-2xl w-full mx-auto animate-fade-in-up animation-delay-500">
-          <h3 className="text-xl font-semibold mb-4">Gran Apertura del Concesionario en:</h3>
+        <div className="bg-white/10 backdrop-blur-sm p-4 sm:p-6 rounded-lg max-w-2xl w-full mx-auto animate-fade-in-up animation-delay-500">
+          <h3 className="text-lg sm:text-xl font-semibold mb-3 sm:mb-4">Gran Apertura del Concesionario en:</h3>
           <Countdown targetDate="2025-11-30T18:00:00-03:00" />
         </div>
-        <div className="flex flex-col items-center space-y-3 animate-fade-in-up animation-delay-700">
+        <div className="flex flex-col items-center space-y-2 sm:space-y-3 animate-fade-in-up animation-delay-700">
             <a 
             href="#pre-registro"
             onClick={handleScrollToForm}
-            className="bg-primary hover:bg-primary-dark text-white font-bold py-4 px-10 rounded-lg text-lg transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105"
+            className="bg-primary-600 hover:bg-primary-700 text-white font-bold py-3 sm:py-4 px-6 sm:px-10 rounded-lg text-base sm:text-lg transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105"
             >
             Reservá tu BYD por USD $500
             </a>
-            <p className="text-sm opacity-80">Cuanto antes reserves, más beneficios obtendrás.</p>
+            <p className="text-xs sm:text-sm opacity-80">Cuanto antes reserves, más beneficios obtendrás.</p>
         </div>
       </div>
       {/* FIX: Replaced non-standard <style jsx global> with a standard <style> tag to define animations. */}
