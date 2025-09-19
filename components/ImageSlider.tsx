@@ -25,6 +25,8 @@ const ChevronRightIcon: React.FC<{ className?: string }> = ({ className }) => (
 
 const ImageSlider: React.FC<ImageSliderProps> = ({ images }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [touchStart, setTouchStart] = useState<number | null>(null);
+  const [touchEnd, setTouchEnd] = useState<number | null>(null);
   const sliderId = Math.random().toString(36).substr(2, 9);
 
   const goToPrevious = () => {
@@ -41,6 +43,30 @@ const ImageSlider: React.FC<ImageSliderProps> = ({ images }) => {
       const newIndex = isLastSlide ? 0 : prevIndex + 1;
       return newIndex;
     });
+  };
+
+  // Touch handlers
+  const handleTouchStart = (e: React.TouchEvent) => {
+    setTouchEnd(null);
+    setTouchStart(e.targetTouches[0].clientX);
+  };
+
+  const handleTouchMove = (e: React.TouchEvent) => {
+    setTouchEnd(e.targetTouches[0].clientX);
+  };
+
+  const handleTouchEnd = () => {
+    if (!touchStart || !touchEnd) return;
+    
+    const distance = touchStart - touchEnd;
+    const isLeftSwipe = distance > 50;
+    const isRightSwipe = distance < -50;
+
+    if (isLeftSwipe) {
+      goToNext();
+    } else if (isRightSwipe) {
+      goToPrevious();
+    }
   };
 
   // Keyboard navigation
@@ -73,7 +99,12 @@ const ImageSlider: React.FC<ImageSliderProps> = ({ images }) => {
   const currentImage = images[currentIndex];
 
   return (
-    <div className="relative w-full h-full group overflow-hidden">
+    <div 
+      className="relative w-full h-full group overflow-hidden"
+      onTouchStart={handleTouchStart}
+      onTouchMove={handleTouchMove}
+      onTouchEnd={handleTouchEnd}
+    >
       <div 
         className="w-full h-full bg-center bg-cover transition-all duration-500" 
         style={{ backgroundImage: `url(${currentImage.src})` }}
@@ -89,48 +120,47 @@ const ImageSlider: React.FC<ImageSliderProps> = ({ images }) => {
       )}
 
       {/* Navigation Arrows */}
-      <div className="absolute top-1/2 -translate-y-1/2 left-5 opacity-70 hover:opacity-100 transition-opacity duration-300 z-[9999]">
+      <div className="absolute top-1/2 -translate-y-1/2 left-2 md:left-5 opacity-70 hover:opacity-100 transition-opacity duration-300 z-[9999]">
         <button 
           onClick={(e) => {
             e.preventDefault();
             e.stopPropagation();
             goToPrevious();
           }} 
-          className="bg-black/40 hover:bg-black/60 text-white p-3 rounded-full cursor-pointer select-none"
+          className="bg-black/40 hover:bg-black/60 text-white p-2 md:p-3 rounded-full cursor-pointer select-none"
           type="button"
         >
-            <ChevronLeftIcon className="h-6 w-6" />
+            <ChevronLeftIcon className="h-4 w-4 md:h-6 md:w-6" />
         </button>
       </div>
-      <div className="absolute top-1/2 -translate-y-1/2 right-5 opacity-70 hover:opacity-100 transition-opacity duration-300 z-[9999]">
+      <div className="absolute top-1/2 -translate-y-1/2 right-2 md:right-5 opacity-70 hover:opacity-100 transition-opacity duration-300 z-[9999]">
         <button 
           onClick={(e) => {
             e.preventDefault();
             e.stopPropagation();
             goToNext();
           }} 
-          className="bg-black/40 hover:bg-black/60 text-white p-3 rounded-full cursor-pointer select-none"
+          className="bg-black/40 hover:bg-black/60 text-white p-2 md:p-3 rounded-full cursor-pointer select-none"
           type="button"
         >
-            <ChevronRightIcon className="h-6 w-6" />
+            <ChevronRightIcon className="h-4 w-4 md:h-6 md:w-6" />
         </button>
       </div>
       
       {/* Dots Indicator */}
-      <div className="absolute bottom-5 left-1/2 -translate-x-1/2 flex space-x-3 z-[9999]">
+      <div className="absolute bottom-3 md:bottom-5 left-1/2 -translate-x-1/2 flex space-x-2 md:space-x-3 z-[9999]">
         {images.map((_, index) => (
           <button
             key={index}
             onClick={(e) => {
               e.preventDefault();
               e.stopPropagation();
-              console.log('Dot clicked!', index);
               setCurrentIndex(index);
             }}
-            className={`w-6 h-6 rounded-full transition-all duration-300 hover:scale-110 cursor-pointer select-none flex items-center justify-center ${currentIndex === index ? 'bg-white shadow-lg' : 'bg-white/60 hover:bg-white/80'}`}
+            className={`w-4 h-4 md:w-6 md:h-6 rounded-full transition-all duration-300 hover:scale-110 cursor-pointer select-none flex items-center justify-center ${currentIndex === index ? 'bg-white shadow-lg' : 'bg-white/60 hover:bg-white/80'}`}
             type="button"
           >
-            <div className={`w-3 h-3 rounded-full ${currentIndex === index ? 'bg-gray-800' : 'bg-white'}`}></div>
+            <div className={`w-2 h-2 md:w-3 md:h-3 rounded-full ${currentIndex === index ? 'bg-gray-800' : 'bg-white'}`}></div>
           </button>
         ))}
       </div>

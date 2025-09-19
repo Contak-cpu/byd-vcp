@@ -42,10 +42,10 @@ const Header: React.FC<HeaderProps> = ({ theme, toggleTheme }) => {
   return (
     <header className="sticky top-0 z-50 bg-gray-50 dark:bg-gray-800 shadow-md">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-20">
+        <div className="flex items-center justify-between h-16 sm:h-18 md:h-20">
           <div className="flex-shrink-0">
             <a href="#" className="flex items-center">
-               <span className="font-heading text-2xl font-bold text-gray-900 dark:text-white">BYD</span>
+               <span className="font-heading text-xl sm:text-2xl font-bold text-gray-900 dark:text-white">BYD</span>
             </a>
           </div>
           <nav className="hidden md:flex md:items-center md:space-x-8">
@@ -56,15 +56,15 @@ const Header: React.FC<HeaderProps> = ({ theme, toggleTheme }) => {
             ))}
           </nav>
           <div className="flex items-center space-x-4">
-            <button onClick={toggleTheme} className="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors">
-              {theme === 'light' ? <MoonIcon className="h-6 w-6 text-gray-700 dark:text-gray-300" /> : <SunIcon className="h-6 w-6 text-yellow-600 dark:text-yellow-400" />}
+            <button onClick={toggleTheme} className="p-1.5 sm:p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors">
+              {theme === 'light' ? <MoonIcon className="h-5 w-5 sm:h-6 sm:w-6 text-gray-700 dark:text-gray-300" /> : <SunIcon className="h-5 w-5 sm:h-6 sm:w-6 text-yellow-600 dark:text-yellow-400" />}
             </button>
-            <a href="#pre-registro" onClick={(e) => handleLinkClick(e, '#pre-registro')} className="hidden sm:inline-block bg-white hover:bg-gray-200 text-primary-600 font-bold py-2 px-6 rounded-md transition-all duration-300 shadow-sm hover:shadow-md">
+            <a href="#pre-registro" onClick={(e) => handleLinkClick(e, '#pre-registro')} className="hidden sm:inline-block bg-white hover:bg-gray-200 text-primary-600 font-bold py-1.5 px-4 sm:py-2 sm:px-6 rounded-md transition-all duration-300 shadow-sm hover:shadow-md text-sm sm:text-base">
               Reservar Ahora
             </a>
             <div className="md:hidden">
-              <button onClick={() => setIsMenuOpen(!isMenuOpen)} className="p-2 rounded-md text-gray-700 dark:text-gray-300">
-                {isMenuOpen ? <XIcon className="h-6 w-6" /> : <MenuIcon className="h-6 w-6" />}
+              <button onClick={() => setIsMenuOpen(!isMenuOpen)} className="p-1.5 sm:p-2 rounded-md text-gray-700 dark:text-gray-300">
+                {isMenuOpen ? <XIcon className="h-5 w-5 sm:h-6 sm:w-6" /> : <MenuIcon className="h-5 w-5 sm:h-6 sm:w-6" />}
               </button>
             </div>
           </div>
