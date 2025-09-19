@@ -21,19 +21,27 @@ const VisualDivider: React.FC = () => {
         </div>
 
         <div className="w-full max-w-5xl mx-auto pb-6 sm:pb-8 md:pb-10 animate-fade-in-up animation-delay-500">
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6 md:gap-8 text-center">
-            <FeatureHighlight
-              title="Batería Blade"
-              description="La batería eléctrica más segura"
-            />
-            <FeatureHighlight
-              title="Hasta 380 km (NEDC)"
-              description="Autonomía 100% eléctrica"
-            />
-            <FeatureHighlight
-              title="Plataforma-E 3.0"
-              description="Destacando la inteligencia, eficiencia y seguridad"
-            />
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 sm:gap-4 md:gap-6 lg:gap-8 text-center">
+            {/* Primera fila - 1 elemento en móvil, 2 en tablet, 3 en desktop */}
+            <div className="sm:col-span-2 md:col-span-1">
+              <FeatureHighlight
+                title="Batería Blade"
+                description="La batería eléctrica más segura"
+              />
+            </div>
+            {/* Segunda fila - 2 elementos en móvil, 2 en tablet, 3 en desktop */}
+            <div className="sm:col-span-1">
+              <FeatureHighlight
+                title="Hasta 380 km (NEDC)"
+                description="Autonomía 100% eléctrica"
+              />
+            </div>
+            <div className="sm:col-span-1">
+              <FeatureHighlight
+                title="Plataforma-E 3.0"
+                description="Destacando la inteligencia, eficiencia y seguridad"
+              />
+            </div>
           </div>
         </div>
       </div>
@@ -61,8 +69,8 @@ const VisualDivider: React.FC = () => {
 
 const FeatureHighlight: React.FC<{ title: string; description: string }> = ({ title, description }) => (
   <div>
-    <h3 className="font-bold text-base sm:text-lg md:text-xl lg:text-2xl font-heading">{title}</h3>
-    <p className="mt-1 text-xs sm:text-sm md:text-sm lg:text-base text-gray-300">{description}</p>
+    <h3 className="font-bold text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl font-heading">{title}</h3>
+    <p className="mt-1 text-xs sm:text-xs md:text-sm lg:text-sm xl:text-base text-gray-300">{description}</p>
   </div>
 );
 
