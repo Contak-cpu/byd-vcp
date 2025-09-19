@@ -17,6 +17,12 @@
     text-rendering: optimizeLegibility;
   }
   
+  /* Aplicar Orbitron a todos los títulos */
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Orbitron', sans-serif;
+    font-weight: 600;
+  }
+  
   /* Mejorar la experiencia táctil */
   button, a, input, select, textarea {
     -webkit-tap-highlight-color: transparent;
