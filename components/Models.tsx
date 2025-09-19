@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import { CAR_MODELS } from '../constants';
 import { CarModel } from '../types';
 import ModelModal from './ModelModal';
+import VehicleDetail from './VehicleDetail';
 
 interface ModelCardProps {
   model: CarModel;
@@ -69,7 +70,7 @@ const Models: React.FC = () => {
           ))}
         </div>
       </div>
-      {selectedModel && <ModelModal model={selectedModel} onClose={handleCloseModal} />}
+      {selectedModel && <VehicleDetail vehicle={selectedModel} onClose={handleCloseModal} />}
     </section>
   );
 };
