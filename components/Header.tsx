@@ -32,15 +32,6 @@ const XIcon: React.FC<{ className?: string }> = ({ className }) => (
 
 const Header: React.FC<HeaderProps> = ({ theme, toggleTheme }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isScrolled, setIsScrolled] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 10);
-    };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
 
   const handleLinkClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
     e.preventDefault();
@@ -49,31 +40,31 @@ const Header: React.FC<HeaderProps> = ({ theme, toggleTheme }) => {
   };
 
   return (
-    <header className={`sticky top-0 z-50 transition-all duration-300 ${isScrolled ? 'bg-gray-50 dark:bg-gray-800 shadow-md' : 'bg-transparent'}`}>
+    <header className="sticky top-0 z-50 bg-gray-50 dark:bg-gray-800 shadow-md">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
           <div className="flex-shrink-0">
             <a href="#" className="flex items-center">
-               <span className={`font-heading text-2xl font-bold transition-colors ${isScrolled ? 'text-gray-900 dark:text-white' : 'text-gray-900 dark:text-white drop-shadow-lg'}`}>BYD</span>
+               <span className="font-heading text-2xl font-bold text-gray-900 dark:text-white">BYD</span>
             </a>
           </div>
           <nav className="hidden md:flex md:items-center md:space-x-8">
             {NAV_LINKS.map(link => (
-              <a key={link.name} href={link.href} onClick={(e) => handleLinkClick(e, link.href)} className={`font-medium transition-colors ${isScrolled ? 'text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white' : 'text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white drop-shadow-md'}`}>
+              <a key={link.name} href={link.href} onClick={(e) => handleLinkClick(e, link.href)} className="font-medium text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors">
                 {link.name}
               </a>
             ))}
           </nav>
           <div className="flex items-center space-x-4">
-            <button onClick={toggleTheme} className={`p-2 rounded-full transition-colors ${isScrolled ? 'hover:bg-gray-200 dark:hover:bg-gray-700' : 'hover:bg-gray-200 dark:hover:bg-gray-700'}`}>
-              {theme === 'light' ? <MoonIcon className={`h-6 w-6 ${isScrolled ? 'text-gray-700 dark:text-gray-300' : 'text-gray-700 dark:text-gray-300 drop-shadow-md'}`} /> : <SunIcon className={`h-6 w-6 ${isScrolled ? 'text-yellow-600 dark:text-yellow-400' : 'text-yellow-600 dark:text-yellow-400 drop-shadow-md'}`} />}
+            <button onClick={toggleTheme} className="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors">
+              {theme === 'light' ? <MoonIcon className="h-6 w-6 text-gray-700 dark:text-gray-300" /> : <SunIcon className="h-6 w-6 text-yellow-600 dark:text-yellow-400" />}
             </button>
             <a href="#pre-registro" onClick={(e) => handleLinkClick(e, '#pre-registro')} className="hidden sm:inline-block bg-white hover:bg-gray-200 text-primary-600 font-bold py-2 px-6 rounded-md transition-all duration-300 shadow-sm hover:shadow-md">
               Reservar Ahora
             </a>
             <div className="md:hidden">
-              <button onClick={() => setIsMenuOpen(!isMenuOpen)} className={`p-2 rounded-md ${isScrolled ? 'text-gray-700 dark:text-gray-300' : 'text-gray-700 dark:text-gray-300'}`}>
-                {isMenuOpen ? <XIcon className={`h-6 w-6 ${isScrolled ? 'drop-shadow-md' : 'drop-shadow-md'}`} /> : <MenuIcon className={`h-6 w-6 ${isScrolled ? 'drop-shadow-md' : 'drop-shadow-md'}`} />}
+              <button onClick={() => setIsMenuOpen(!isMenuOpen)} className="p-2 rounded-md text-gray-700 dark:text-gray-300">
+                {isMenuOpen ? <XIcon className="h-6 w-6" /> : <MenuIcon className="h-6 w-6" />}
               </button>
             </div>
           </div>
