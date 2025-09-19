@@ -21,7 +21,7 @@ const Benefits: React.FC = () => {
         </div>
 
         <div className="w-full max-w-5xl mx-auto pb-6 sm:pb-8 md:pb-10 animate-fade-in-up animation-delay-500">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 md:gap-8 text-center">
+          <div className="hidden sm:grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 md:gap-8 text-center">
             <FeatureHighlight
               title="Innovación Tecnológica"
               description="Tecnología de vanguardia en movilidad eléctrica"
