@@ -42,13 +42,13 @@ const Header: React.FC<HeaderProps> = ({ theme, toggleTheme }) => {
   return (
     <header className="sticky top-0 z-50 bg-black shadow-md">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16 sm:h-18 md:h-20">
+        <div className="flex items-center justify-between h-16 sm:h-20 md:h-24 lg:h-28">
           <div className="flex-shrink-0">
             <a href="#" className="flex items-center">
               <img 
                 src="./images/byd-logo.png" 
                 alt="BYD Logo" 
-                className="h-8 sm:h-10 md:h-12 w-auto"
+                className="h-10 sm:h-12 md:h-16 lg:h-20 w-auto"
               />
             </a>
           </div>
