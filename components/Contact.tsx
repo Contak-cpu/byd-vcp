@@ -10,15 +10,20 @@ const Contact: React.FC = () => {
             Estamos ansiosos por recibirte. Encontranos en el corazón de las sierras.
           </p>
         </div>
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 md:gap-10 items-center">
-          <div className="space-y-4 sm:space-y-5 md:space-y-6">
-            <ContactInfoItem icon="location" title="Dirección" text="Av. San Martín 490, X5152 Villa Carlos Paz, Córdoba" />
-            <ContactInfoItem icon="phone" title="WhatsApp" text="+54 9 351 123 4567" link="https://wa.me/5493511234567" />
-            <ContactInfoItem icon="mail" title="Email" text="info@byd-carlospaz.com.ar" link="mailto:info@byd-carlospaz.com.ar" />
-            <ContactInfoItem icon="clock" title="Horarios de Atención (Desde 30/11/2024)" text="Lunes a Viernes: 9:00 - 18:00 | Sábados: 9:00 - 13:00" />
+        <div className="w-full space-y-8 sm:space-y-10 md:space-y-12">
+          {/* Información de contacto */}
+          <div className="w-full">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+              <ContactInfoItem icon="location" title="Dirección" text="Av. San Martín 490, X5152 Villa Carlos Paz, Córdoba" />
+              <ContactInfoItem icon="phone" title="WhatsApp" text="+54 9 351 123 4567" link="https://wa.me/5493511234567" />
+              <ContactInfoItem icon="mail" title="Email" text="info@byd-carlospaz.com.ar" link="mailto:info@byd-carlospaz.com.ar" />
+              <ContactInfoItem icon="clock" title="Horarios de Atención (Desde 30/11/2024)" text="Lunes a Viernes: 9:00 - 18:00 | Sábados: 9:00 - 13:00" />
+            </div>
           </div>
-          <div>
-            <div className="relative rounded-lg overflow-hidden shadow-lg h-64 sm:h-80 md:h-96 bg-gray-200 dark:bg-gray-700">
+          
+          {/* Mapa */}
+          <div className="w-full">
+            <div className="relative rounded-lg overflow-hidden shadow-lg h-64 sm:h-80 md:h-96 lg:h-[500px] bg-gray-200 dark:bg-gray-700">
               <iframe
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3390.5!2d-64.531776!3d-31.423824!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x942d5c5c5c5c5c5c%3A0x5c5c5c5c5c5c5c5c!2sAv.%20San%20Mart%C3%ADn%20490%2C%20X5152%20Villa%20Carlos%20Paz%2C%20C%C3%B3rdoba!5e0!3m2!1ses!2sar!4v1234567890123!5m2!1ses!2sar"
                 width="100%"
@@ -64,13 +69,13 @@ const ContactInfoItem: React.FC<{ icon: string, title: string, text: string, lin
   const content = link ? <a href={link} target="_blank" rel="noopener noreferrer" className="hover:text-primary-600 transition-colors">{text}</a> : <span>{text}</span>;
 
   return (
-    <div className="flex items-start space-x-3 sm:space-x-4">
+    <div className="flex flex-col items-center text-center space-y-2 sm:space-y-3 p-3 sm:p-4 bg-white dark:bg-gray-800 rounded-lg shadow-sm hover:shadow-md transition-shadow">
       <div className="flex-shrink-0 bg-primary-100 dark:bg-primary-900/20 p-2 sm:p-3 rounded-full">
         <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 sm:h-6 sm:w-6 text-primary-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>{icons[icon]}</svg>
       </div>
       <div>
-        <h4 className="text-base sm:text-lg font-bold text-gray-900 dark:text-white">{title}</h4>
-        <p className="text-sm sm:text-base text-gray-600 dark:text-gray-400">{content}</p>
+        <h4 className="text-sm sm:text-base font-bold text-gray-900 dark:text-white">{title}</h4>
+        <p className="text-xs sm:text-sm text-gray-600 dark:text-gray-400 mt-1">{content}</p>
       </div>
     </div>
   );

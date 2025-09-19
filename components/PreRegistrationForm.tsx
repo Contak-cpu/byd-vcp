@@ -56,7 +56,7 @@ const PreRegistrationForm: React.FC = () => {
 
   if (submitted) {
     return (
-      <section id="pre-registro" className="relative h-[90vh] min-h-[600px] text-white overflow-hidden">
+      <section id="pre-registro" className="hidden md:block relative h-[90vh] min-h-[600px] text-white overflow-hidden">
         {/* Imagen de fondo */}
         <div className="absolute inset-0 z-0">
           <img 
@@ -89,7 +89,7 @@ const PreRegistrationForm: React.FC = () => {
   }
 
   return (
-    <section id="pre-registro" className="relative h-[80vh] sm:h-[85vh] md:h-[90vh] min-h-[500px] sm:min-h-[550px] md:min-h-[600px] text-white overflow-hidden">
+    <section id="pre-registro" className="hidden md:block relative h-[80vh] sm:h-[85vh] md:h-[90vh] min-h-[500px] sm:min-h-[550px] md:min-h-[600px] text-white overflow-hidden">
       {/* Imagen de fondo */}
       <div className="absolute inset-0 z-0">
         <img 
