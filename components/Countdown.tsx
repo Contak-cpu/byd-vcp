@@ -41,16 +41,16 @@ const Countdown: React.FC<CountdownProps> = ({ targetDate }) => {
   const formatNumber = (num: number) => num.toString().padStart(2, '0');
 
   const TimeUnit: React.FC<{ value: number; label: string }> = ({ value, label }) => (
-    <div className="flex flex-col items-center">
-      <span className="font-heading text-4xl md:text-5xl font-bold text-white tracking-wider">
+    <div className="flex flex-col items-center p-2 sm:p-3">
+      <span className="font-heading text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white tracking-wider">
         {formatNumber(value)}
       </span>
-      <span className="text-xs uppercase text-gray-300">{label}</span>
+      <span className="text-xs sm:text-sm uppercase text-gray-300 mt-1">{label}</span>
     </div>
   );
 
   return (
-    <div className="grid grid-cols-4 gap-4 text-center">
+    <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 sm:gap-4 text-center">
       <TimeUnit value={timeLeft.days} label="Días" />
       <TimeUnit value={timeLeft.hours} label="Horas" />
       <TimeUnit value={timeLeft.minutes} label="Minutos" />
