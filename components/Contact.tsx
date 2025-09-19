@@ -35,7 +35,7 @@ const Contact: React.FC = () => {
                   href="https://www.google.com/maps/search/Av.+San+Mart%C3%ADn+490,+X5152+Villa+Carlos+Paz,+C%C3%B3rdoba" 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="text-sm font-medium text-primary hover:text-primary-dark transition-colors flex items-center space-x-1"
+                  className="text-sm font-medium text-primary-600 hover:text-primary-700 transition-colors flex items-center space-x-1"
                 >
                   <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
                     <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
