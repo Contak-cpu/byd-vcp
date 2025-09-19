@@ -49,41 +49,41 @@ const Header: React.FC<HeaderProps> = ({ theme, toggleTheme }) => {
   };
 
   return (
-    <header className={`sticky top-0 z-50 transition-all duration-300 ${isScrolled ? 'bg-primary-600 dark:bg-secondary-600 shadow-md' : 'bg-transparent'}`}>
+    <header className={`sticky top-0 z-50 transition-all duration-300 ${isScrolled ? 'bg-gray-50 dark:bg-gray-800 shadow-md' : 'bg-transparent'}`}>
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
           <div className="flex-shrink-0">
             <a href="#" className="flex items-center">
-               <span className={`font-heading text-2xl font-bold transition-colors text-white drop-shadow-lg`}>BYD</span>
+               <span className={`font-heading text-2xl font-bold transition-colors ${isScrolled ? 'text-gray-900 dark:text-white' : 'text-gray-900 dark:text-white drop-shadow-lg'}`}>BYD</span>
             </a>
           </div>
           <nav className="hidden md:flex md:items-center md:space-x-8">
             {NAV_LINKS.map(link => (
-              <a key={link.name} href={link.href} onClick={(e) => handleLinkClick(e, link.href)} className="font-medium transition-colors text-white/90 hover:text-white drop-shadow-md">
+              <a key={link.name} href={link.href} onClick={(e) => handleLinkClick(e, link.href)} className={`font-medium transition-colors ${isScrolled ? 'text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white' : 'text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white drop-shadow-md'}`}>
                 {link.name}
               </a>
             ))}
           </nav>
           <div className="flex items-center space-x-4">
-            <button onClick={toggleTheme} className="p-2 rounded-full hover:bg-white/10 transition-colors">
-              {theme === 'light' ? <MoonIcon className="h-6 w-6 text-white drop-shadow-md" /> : <SunIcon className="h-6 w-6 text-yellow-400 drop-shadow-md" />}
+            <button onClick={toggleTheme} className={`p-2 rounded-full transition-colors ${isScrolled ? 'hover:bg-gray-200 dark:hover:bg-gray-700' : 'hover:bg-gray-200 dark:hover:bg-gray-700'}`}>
+              {theme === 'light' ? <MoonIcon className={`h-6 w-6 ${isScrolled ? 'text-gray-700 dark:text-gray-300' : 'text-gray-700 dark:text-gray-300 drop-shadow-md'}`} /> : <SunIcon className={`h-6 w-6 ${isScrolled ? 'text-yellow-600 dark:text-yellow-400' : 'text-yellow-600 dark:text-yellow-400 drop-shadow-md'}`} />}
             </button>
             <a href="#pre-registro" onClick={(e) => handleLinkClick(e, '#pre-registro')} className="hidden sm:inline-block bg-white hover:bg-gray-200 text-primary-600 font-bold py-2 px-6 rounded-md transition-all duration-300 shadow-sm hover:shadow-md">
               Reservar Ahora
             </a>
             <div className="md:hidden">
-              <button onClick={() => setIsMenuOpen(!isMenuOpen)} className="p-2 rounded-md text-white">
-                {isMenuOpen ? <XIcon className="h-6 w-6 drop-shadow-md" /> : <MenuIcon className="h-6 w-6 drop-shadow-md" />}
+              <button onClick={() => setIsMenuOpen(!isMenuOpen)} className={`p-2 rounded-md ${isScrolled ? 'text-gray-700 dark:text-gray-300' : 'text-gray-700 dark:text-gray-300'}`}>
+                {isMenuOpen ? <XIcon className={`h-6 w-6 ${isScrolled ? 'drop-shadow-md' : 'drop-shadow-md'}`} /> : <MenuIcon className={`h-6 w-6 ${isScrolled ? 'drop-shadow-md' : 'drop-shadow-md'}`} />}
               </button>
             </div>
           </div>
         </div>
       </div>
       {isMenuOpen && (
-        <div className="md:hidden bg-primary dark:bg-secondary py-4">
+        <div className="md:hidden bg-gray-50 dark:bg-gray-800 py-4">
           <nav className="flex flex-col items-center space-y-4">
             {NAV_LINKS.map(link => (
-              <a key={link.name} href={link.href} onClick={(e) => handleLinkClick(e, link.href)} className="font-medium text-white/90 hover:text-white transition-colors drop-shadow-md">
+              <a key={link.name} href={link.href} onClick={(e) => handleLinkClick(e, link.href)} className="font-medium text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors drop-shadow-md">
                 {link.name}
               </a>
             ))}
